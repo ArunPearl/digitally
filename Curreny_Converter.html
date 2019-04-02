@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script language="JavaScript">
+function currencyEvaluatorFirst(){
+var firstSelect =  document.getElementById("currencyselectorfirst");
+var secondSelect =  document.getElementById("currencyselectorsecond");
+
+if (firstSelect.options[firstSelect.selectedIndex].text == "EUR" & secondSelect.options[secondSelect.selectedIndex].text == "EUR") {
+  document.converter.currencyinputsecond.value = document.converter.currencyinputfirst.value;
+}
+else if (firstSelect.options[firstSelect.selectedIndex].text == "EUR" & secondSelect.options[secondSelect.selectedIndex].text == "USD") {
+  document.converter.currencyinputsecond.value = document.converter.currencyinputfirst.value * 1.12;
+}
+else if (firstSelect.options[firstSelect.selectedIndex].text == "EUR" & secondSelect.options[secondSelect.selectedIndex].text == "CAD") {
+  document.converter.currencyinputsecond.value = document.converter.currencyinputfirst.value * 1.5;
+}
+else if (firstSelect.options[firstSelect.selectedIndex].text == "USD" & secondSelect.options[secondSelect.selectedIndex].text == "USD") {
+  document.converter.currencyinputsecond.value = document.converter.currencyinputfirst.value;
+}
+else if (firstSelect.options[firstSelect.selectedIndex].text == "USD" & secondSelect.options[secondSelect.selectedIndex].text == "EUR") {
+  document.converter.currencyinputsecond.value = document.converter.currencyinputfirst.value * 0.89;
+}
+else if (firstSelect.options[firstSelect.selectedIndex].text == "USD" & secondSelect.options[secondSelect.selectedIndex].text == "EUR") {
+  document.converter.currencyinputsecond.value = document.converter.currencyinputfirst.value * 1.34;
+}
+else if (firstSelect.options[firstSelect.selectedIndex].text == "CAD" & secondSelect.options[secondSelect.selectedIndex].text == "CAD") {
+  document.converter.currencyinputsecond.value = document.converter.currencyinputfirst.value;
+}
+else if (firstSelect.options[firstSelect.selectedIndex].text == "CAD" & secondSelect.options[secondSelect.selectedIndex].text == "EUR") {
+  document.converter.currencyinputsecond.value = document.converter.currencyinputfirst.value * 0.67;
+}
+else if (firstSelect.options[firstSelect.selectedIndex].text == "CAD" & secondSelect.options[secondSelect.selectedIndex].text == "USD") {
+  document.converter.currencyinputsecond.value = document.converter.currencyinputfirst.value * 0.75;
+}
+}
+function currencyEvaluatorSecond(){
+var firstSelect =  document.getElementById("currencyselectorfirst");
+var secondSelect =  document.getElementById("currencyselectorsecond"); 
+
+if (secondSelect.options[secondSelect.selectedIndex].text == "EUR" & firstSelect.options[firstSelect.selectedIndex].text == "EUR") {
+  document.converter.currencyinputfirst.value = document.converter.currencyinputsecond.value;
+}
+else if (secondSelect.options[secondSelect.selectedIndex].text == "EUR" & firstSelect.options[firstSelect.selectedIndex].text == "USD") {
+  document.converter.currencyinputfirst.value = document.converter.currencyinputsecond.value * 1.12;
+}
+else if (secondSelect.options[secondSelect.selectedIndex].text == "EUR" & firstSelect.options[firstSelect.selectedIndex].text == "CAD") {
+  document.converter.currencyinputfirst.value = document.converter.currencyinputsecond.value * 1.5;
+}
+else if (secondSelect.options[secondSelect.selectedIndex].text == "USD" & firstSelect.options[firstSelect.selectedIndex].text == "USD") {
+  document.converter.currencyinputfirst.value = document.converter.currencyinputsecond.value;
+}
+else if (secondSelect.options[secondSelect.selectedIndex].text == "USD" & firstSelect.options[firstSelect.selectedIndex].text == "EUR") {
+  document.converter.currencyinputfirst.value = document.converter.currencyinputsecond.value * 0.89;
+}
+else if (secondSelect.options[secondSelect.selectedIndex].text == "USD" & firstSelect.options[firstSelect.selectedIndex].text == "CAD") {
+  document.converter.currencyinputfirst.value = document.converter.currencyinputsecond.value * 1.34;
+}
+else if (secondSelect.options[secondSelect.selectedIndex].text == "CAD" & firstSelect.options[firstSelect.selectedIndex].text == "CAD") {
+  document.converter.currencyinputfirst.value = document.converter.currencyinputsecond.value;
+}
+else if (secondSelect.options[secondSelect.selectedIndex].text == "CAD" & firstSelect.options[firstSelect.selectedIndex].text == "USD") {
+  document.converter.currencyinputfirst.value = document.converter.currencyinputsecond.value * 0.75;
+}
+else if (secondSelect.options[secondSelect.selectedIndex].text == "CAD" & firstSelect.options[firstSelect.selectedIndex].text == "EUR") {
+  document.converter.currencyinputfirst.value = document.converter.currencyinputsecond.value * 0.67;
+}
+}
+
+</script>
+<style>
+form{
+     border: 2px solid black;
+     padding: 10px;
+	 width: 300px;
+	 height: 250px;
+	 box-sizing: border-box;
+}
+
+select {
+  padding: 10px 12px;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+}
+
+input { 
+  padding: 10px 12px;
+  border: 1px solid #d1d1d1;
+  border-radius: 4px;
+  background-color: white;
+
+}
+</style>
+</head>
+
+<body>
+<form name="converter">
+<table>
+<h2>Currency converter</h2>
+<label>Type in amount and select currency:</label>
+<td>
+<input type="text" value="0.00" name="currencyinputfirst" oninput="currencyEvaluatorFirst()" /> 
+</td>
+
+<td>
+<select id="currencyselectorfirst" onChange="currencyEvaluatorFirst()">
+    <option value="EUR">EUR</option>
+    <option value="USD">USD</option>
+	<option value="CAD">CAD</option>
+  </select>  
+</td>
+</tr>
+
+<tr>
+ 
+ <td>
+ <label>Converted amount:</label>
+  <input type="text" value="0.00" name="currencyinputsecond" oninput="currencyEvaluatorSecond()" /> 
+ </td>
+<td> 
+<br>
+  <select id="currencyselectorsecond" onChange="currencyEvaluatorSecond()">
+    <option value="EUR">EUR</option>
+    <option value="USD">USD</option>
+	<option value="CAD">CAD</option>
+  </select>
+
+</td>
+</tr>
+
+
+</table><br>
+<label style="float: right;"><a href="#">Disclaimer</a></label>
+</form>
+</body>
+</html>
